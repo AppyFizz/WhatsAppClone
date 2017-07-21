@@ -16,7 +16,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-public class MainActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getName();
 
@@ -31,12 +31,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Modify Action Bar to display logo instead.
         ActionBar menu = getSupportActionBar();
         menu.setDisplayShowHomeEnabled(true);
         menu.setDisplayUseLogoEnabled(true);
         menu.setLogo(R.drawable.ic_whatsapp_logo_1);
-        setContentView(R.layout.activity_main);
 
+        // Display SignIn screen to the user
+        setContentView(R.layout.activity_sign_in);
+
+        // Parse Analytics
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
     }
 
@@ -93,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if (e == null) Log.d(TAG, "Sign up successful");
-                else Toast.makeText(MainActivity.this, e.getMessage().substring(e.getMessage().indexOf(" ")), Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(SignInActivity.this, e.getMessage().substring(e.getMessage().indexOf(" ")), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if (e == null) Log.d(TAG, "Log in successful");
-                else Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                else Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

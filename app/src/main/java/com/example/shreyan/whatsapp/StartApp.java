@@ -14,24 +14,21 @@ public class StartApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Datastore
+        // Enable local datastore
         Parse.enableLocalDatastore(this);
 
         // Initialize Parse
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("5de637131295b59d3664c565b5bc9f64ce19cdba")
-                .clientKey("2860c55df22729357195e5a31c57ed7a3bec4364")
-                .server("http://ec2-52-14-76-109.us-east-2.compute.amazonaws.com:80/parse/")
+                .applicationId(getString(R.string.parse_app_id))
+                .clientKey(getString(R.string.parse_client_key))
+                .server(getString(R.string.parse_server_url))
                 .build()
         );
 
-        // ParseUser.enableAutomaticUser();
-
+        // Grant public access
         ParseACL parseACL = new ParseACL();
         parseACL.setPublicReadAccess(true);
         parseACL.setPublicWriteAccess(true);
         parseACL.setDefaultACL(parseACL, true);
     }
-
-
 }

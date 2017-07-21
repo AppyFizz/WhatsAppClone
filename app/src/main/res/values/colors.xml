@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--WhatsApp-specific colors-->
     <color name="colorPrimary">#128C7E</color>
     <color name="colorPrimaryDark">#075E54</color>
     <color name="colorAccent">#25D366</color>
-    <color name="backgroundColor">#F6F6FC</color>
+
+    <!--WhatsApp-like grey-->
+    <color name="greyBackground">#F6F6FC</color>
+
+    <!--Generic colors-->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="lightGrey">#E0E0E0</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="darkGrey">#616161</color>
+    <color name="grey">#9E9E9E</color>
 </resources>

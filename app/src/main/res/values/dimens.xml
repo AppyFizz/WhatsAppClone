@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contact_img_width">74dp</dimen>
+    <dimen name="contact_list_item_height">81dp</dimen>
+    <dimen name="half_contact_list_item_height">40dp</dimen>
+    <dimen name="separator_line_height">1dp</dimen>
+</resources>
