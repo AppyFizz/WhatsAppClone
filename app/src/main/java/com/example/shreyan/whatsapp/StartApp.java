@@ -9,6 +9,11 @@ import com.parse.ParseACL;
  * Created by AppyFizz and AbinayaRajesh on 7/21/2017.
  */
 
+/*
+ * Runs as soon as the Application starts.
+ * only performs some inital setup for the Parse server.
+ */
+
 public class StartApp extends Application {
     @Override
     public void onCreate() {

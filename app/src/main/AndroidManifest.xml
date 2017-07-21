@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".ContactsListActivity">
         </activity>
+        <activity android:name=".MessagingActivity">
+        </activity>
     </application>
 
 </manifest>

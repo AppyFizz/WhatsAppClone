@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Each item in the list of contacts-->
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:orientation="horizontal"
@@ -13,7 +17,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        android:clickable="true">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/contact_img"
@@ -27,7 +32,8 @@
         android:id="@+id/contact_username_frame"
         android:layout_width="match_parent"
         android:layout_height="@dimen/half_contact_list_item_height"
-        android:layout_toEndOf="@+id/contact_img_frame">
+        android:layout_toEndOf="@+id/contact_img_frame"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/contact_username"
@@ -48,7 +54,8 @@
         android:layout_below="@+id/contact_username_frame"
         android:layout_toEndOf="@+id/contact_img_frame"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/contact_preview"

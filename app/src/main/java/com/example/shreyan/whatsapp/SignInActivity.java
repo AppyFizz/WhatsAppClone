@@ -16,6 +16,11 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+/*
+ * The very first Activity displaye to the user.
+ * Prompts them for their login information.
+ */
+
 public class SignInActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getName();

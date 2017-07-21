@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--A custom view for the action bar that is shown above the 'chat screen'-->
+<!--Will contain contact's thumbnail and name (username for now)-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+</LinearLayout>
