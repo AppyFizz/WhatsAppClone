@@ -6,7 +6,7 @@ import com.parse.Parse;
 import com.parse.ParseACL;
 
 /**
- * Created by AppyFizz and arajesh on 7/21/2017.
+ * Created by AppyFizz and AbinayaRajesh on 7/21/2017.
  */
 
 public class StartApp extends Application {

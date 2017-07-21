@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getName();
 
-    private enum SignIn {
+    private enum SignInMode {
         SIGN_UP, LOG_IN
     }
 
-    private SignIn signInMode = SignIn.SIGN_UP;
+    private SignInMode signInMode = SignInMode.SIGN_UP;
     private boolean signedIn = false;
 
 
@@ -41,16 +41,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Toggles the Sign in mode between 'Sign up' and 'Log in'.
      *
-     *
-     * @param view
+     * @param view The View which calls this method when clicked.
      */
     public void toggleSigninMode(View view) {
         Button signInButton = (Button) findViewById(R.id.signInButton);
         TextView signInTextView = (TextView) findViewById(R.id.signInText);
 
-        if (signInMode == SignIn.LOG_IN) {
-            signInMode = SignIn.SIGN_UP;
+        if (signInMode == SignInMode.LOG_IN) {
+            signInMode = SignInMode.SIGN_UP;
             signInButton.setText("Sign Up");
             signInTextView.setText("Already have an account? Log In");
             signInButton.setOnClickListener(new View.OnClickListener() {
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
                     signUp(view);
                 }
             });
-        } else if (signInMode == SignIn.SIGN_UP) {
-            signInMode = SignIn.LOG_IN;
+        } else if (signInMode == SignInMode.SIGN_UP) {
+            signInMode = SignInMode.LOG_IN;
             signInButton.setText("Log In");
             signInTextView.setText("Don't have an account? Sign Up");
             signInButton.setOnClickListener(new View.OnClickListener() {
@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Signs up the user.
      *
-     *
-     * @param view
+     * @param view The View which calls this method when clicked.
      */
     public void signUp(View view) {
         String username = ((EditText) findViewById(R.id.username)).getText().toString();
@@ -99,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Logs in the user.
      *
-     *
-     * @param view
+     * @param view The View which calls this method when clicked.
      */
     public void logIn(View view) {
         String username = ((EditText) findViewById(R.id.username)).getText().toString();
