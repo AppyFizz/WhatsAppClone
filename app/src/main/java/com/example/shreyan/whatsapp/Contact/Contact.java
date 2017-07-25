@@ -1,4 +1,7 @@
-package com.example.shreyan.whatsapp;
+package com.example.shreyan.whatsapp.Contact;
+
+import com.example.shreyan.whatsapp.Message.Message;
+import com.example.shreyan.whatsapp.R;
 
 /**
  * Created by AppyFizz on 7/21/2017.

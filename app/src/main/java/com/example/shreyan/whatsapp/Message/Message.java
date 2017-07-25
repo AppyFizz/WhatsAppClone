@@ -1,4 +1,4 @@
-package com.example.shreyan.whatsapp;
+package com.example.shreyan.whatsapp.Message;
 
 /**
  * Created by AppyFizz on 7/21/2017.

@@ -2,6 +2,11 @@
 
 <!--The 'chat screen'-->
 
+<!--Add overflow menu on top-right-->
+<!--For actions such as delete chat, etc.-->
+
+
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

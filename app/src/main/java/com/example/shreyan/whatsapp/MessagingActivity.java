@@ -16,7 +16,7 @@ public class MessagingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Display contact thumbail on left end of action bar.
+        // Display contact thumbnail on left end of action bar.
         // Display contact name beside it.
 
         setContentView(R.layout.activity_messaging);
@@ -26,6 +26,6 @@ public class MessagingActivity extends AppCompatActivity {
 
         // EditText at bottom to type in new messages.
 
-        // 'Send messsage' button at bottom-right.
+        // 'Send message' button at bottom-right.
     }
 }
