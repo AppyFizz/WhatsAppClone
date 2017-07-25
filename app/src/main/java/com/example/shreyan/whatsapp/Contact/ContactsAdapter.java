@@ -14,17 +14,17 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
- * Created by AbinayaRajesh on 7/24/17.
- * <p>
+ * Created by AbinayaRajesh and AppyFizz on 7/24/17.
+ *
  * A custom adapter to display a list of Contact objects, using a RecyclerView.
  */
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactViewHolder> {
 
     private List<Contact> contactList;
-    Context context;
+    private Context context;
 
-    public ContactAdapter(Context context, List<Contact> contactsList) {
+    public ContactsAdapter(Context context, List<Contact> contactsList) {
         this.context = context;
         this.contactList = contactsList;
     }
@@ -38,7 +38,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     @Override
     public void onBindViewHolder(ContactViewHolder holder, int position) {
         Contact contact = contactList.get(position);
-        // set text here
+        holder.circleImageView.setImageResource(contact.getImgResource());
+        holder.usernameTextView.setText(contact.getUsername());
+        holder.previewTextView.setText(contact.getPreview());
     }
 
     @Override
@@ -57,7 +59,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             circleImageView = (CircleImageView) itemView.findViewById(R.id.contact_img);
             usernameTextView = (TextView) itemView.findViewById(R.id.contact_username);
             previewTextView = (TextView) itemView.findViewById(R.id.contact_preview);
-            // set listener
+            // Set OnClickListener here.
+
+            /**
+             * TODO: Use some other method of setting OnClickListener.
+             * This method is very inefficient, and defeats the purpose
+             * of using a RecyclerView.
+             */
         }
 
         @Override
@@ -65,7 +73,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
                 Contact contact = contactList.get(position);
-                // Intent
+                // Intent to MessagingActivity for this particular contact.
             }
         }
     }

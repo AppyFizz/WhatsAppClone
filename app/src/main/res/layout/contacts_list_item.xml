@@ -18,6 +18,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:padding="@dimen/contact_img_padding"
         android:clickable="true">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -42,6 +43,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:gravity="bottom"
+            android:paddingLeft="4dp"
             android:fontFamily="sans-serif"
             android:textStyle="normal"
             tools:text="Batman"/>
@@ -62,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="14sp"
-            android:gravity="center_vertical"
+            android:paddingTop="8dp"
             android:fontFamily="sans-serif"
             android:textColor="@color/darkGrey"
             tools:text="Hi"/>

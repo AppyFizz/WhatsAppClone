@@ -1,5 +1,6 @@
 package com.example.shreyan.whatsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 /*
- * The very first Activity displaye to the user.
+ * The very first Activity displayed to the user.
  * Prompts them for their login information.
  */
 
@@ -30,8 +31,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private SignInMode signInMode = SignInMode.SIGN_UP;
-    private boolean signedIn = false;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +42,17 @@ public class SignInActivity extends AppCompatActivity {
         menu.setDisplayUseLogoEnabled(true);
         menu.setLogo(R.drawable.ic_whatsapp_logo_1);
 
-        // Display SignIn screen to the user
+        // Display SignIn screen to the user.
         setContentView(R.layout.activity_sign_in);
 
-        // Parse Analytics
+        // Perform Parse Analytics in the background.
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
+        /**
+         * If the user is already logged in, skip the sign in process,
+         * and directly take them to their contacts' list.
+         */
+        onSuccessfulLogin();
     }
 
     /**
@@ -55,7 +60,7 @@ public class SignInActivity extends AppCompatActivity {
      *
      * @param view The View which calls this method when clicked.
      */
-    public void toggleSigninMode(View view) {
+    private void toggleSigninMode(View view) {
         Button signInButton = (Button) findViewById(R.id.signInButton);
         TextView signInTextView = (TextView) findViewById(R.id.signInText);
 
@@ -87,23 +92,25 @@ public class SignInActivity extends AppCompatActivity {
      *
      * @param view The View which calls this method when clicked.
      */
-    public void signUp(View view) {
+    private void signUp(View view) {
         String username = ((EditText) findViewById(R.id.username)).getText().toString();
         String password = ((EditText) findViewById(R.id.password)).getText().toString();
 
-        // Create a new Parse user
+        // Create a new Parse user.
         ParseUser user = new ParseUser();
 
-        // Get username and password from the EditTexts
+        // Get username and password from the EditTexts.
         user.setUsername(username);
         user.setPassword(password);
 
-        // Sign up the user in the background
+        // Sign up the user in the background.
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
-                if (e == null) Log.d(TAG, "Sign up successful");
-                else
+                if (e == null) {
+                    Log.d(TAG, "Sign up successful");
+                    onSuccessfulLogin();
+                } else
                     Toast.makeText(SignInActivity.this, e.getMessage().substring(e.getMessage().indexOf(" ")), Toast.LENGTH_SHORT).show();
             }
         });
@@ -114,17 +121,31 @@ public class SignInActivity extends AppCompatActivity {
      *
      * @param view The View which calls this method when clicked.
      */
-    public void logIn(View view) {
+    private void logIn(View view) {
         String username = ((EditText) findViewById(R.id.username)).getText().toString();
         String password = ((EditText) findViewById(R.id.password)).getText().toString();
 
-        // Log in the user in the background
+        // Log in the user in the background.
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
-                if (e == null) Log.d(TAG, "Log in successful");
+                if (e == null) {
+                    Log.d(TAG, "Log in successful");
+                    onSuccessfulLogin();
+                }
                 else Toast.makeText(SignInActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    /**
+     * To be called only after the user has successfully logged in.
+     * <p>
+     * Redirects the user to their list of contacts.
+     */
+    private void onSuccessfulLogin() {
+        if (ParseUser.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), ContactsListActivity.class));
+        }
     }
 }
